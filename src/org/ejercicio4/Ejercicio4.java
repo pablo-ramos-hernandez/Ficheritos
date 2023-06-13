@@ -19,13 +19,12 @@ public class Ejercicio4 {
 
                 numeroPatas = c.readLine("Cuantas patas tiene la silla");
 
-                Utils utils = new Utils(color, numeroPatas);
+                Mesa mesa = new Mesa(color, numeroPatas);
 
-                utils.guardarMesa(color, numeroPatas);
+                Utils.guardarMesa(mesa);
                 break;
             case "2":
-                Utils utils2 = new Utils(color, numeroPatas);
-                utils2.mostrarMesas();
+                Utils.mostrarMesas();
                 break;
             default:
                 System.out.println("Debe introducir los valores asignados");

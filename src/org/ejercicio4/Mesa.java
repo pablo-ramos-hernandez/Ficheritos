@@ -1,6 +1,8 @@
 package org.ejercicio4;
 
-public class Mesa {
+import java.io.Serializable;
+
+public class Mesa implements Serializable {
     protected String color;
     protected String numeroDePatas;
 

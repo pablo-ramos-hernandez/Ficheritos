@@ -9,17 +9,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 import org.ejercicio4.Mesa;
 
-public class Utils extends Mesa implements Serializable {
+public class Utils {
 
-    public Utils(String color, String numeroDePatas) {
-        super(color, numeroDePatas);
-    }
-
-    public void guardarMesa(String color, String numeroDePatas) throws IOException, ClassNotFoundException {
+    public static void guardarMesa(Mesa mesa) throws IOException, ClassNotFoundException {
         try {
             FileOutputStream outputStream = new FileOutputStream("src/org/ficheros/ejercicio4.txt");
 
@@ -27,7 +22,7 @@ public class Utils extends Mesa implements Serializable {
 
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
 
-            objectOutputStream.writeObject(new Utils(color, numeroDePatas));
+            objectOutputStream.writeObject(mesa);
             objectOutputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -37,7 +32,7 @@ public class Utils extends Mesa implements Serializable {
 
     }
 
-    public void mostrarMesas() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public static void mostrarMesas() throws FileNotFoundException, IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("src/org/ficheros/ejercicio4.txt");
 
         BufferedInputStream bufferedInputStream = new BufferedInputStream(fis);
